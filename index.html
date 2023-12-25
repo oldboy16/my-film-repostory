@@ -21,7 +21,16 @@
             <div class="hero__wrap">
                 <ul class="hero__list">
                     <li class="hero__item">
-                        <img onclick="openModal()" class="burger" src="./img/burger.png" alt="">
+                        <div class="off__canvas">
+                            <div class="off__item">
+                                <h3>Welcome to my web</h3>
+                                <img class="x" onclick="closeCanvas()" src="./img/x.svg" alt="">
+                            </div>
+                        </div>
+                       <img class="burger" onclick="openCanvas()" src="./img/burger.png" alt="">
+                       <div onclick="closeCanvas()" class="shadow">
+
+                       </div>
                     </li>
                     <li class="hero__item">
                         <img src="./img/Logo.png" alt="">
