@@ -50,7 +50,7 @@ partMovies.forEach((item) => {
     <img class="hero__img" src="https://i.ytimg.com/vi/${item.ytid}/hqdefault.jpg?" class="card-img-top" alt="...">
     <p>${item.Categories}</p>
     <h5 class="card__title">${item.Title}</h5>
-    <p class="card__year">${item.movie_year}</p>
+    <p class="card__year">${item.movie_year}-year</p>
     <p class="card__rate">${item.imdb_rating}</p>
     <a href="https://www.youtube.com/watch?v=${item.ytid}" class="btn btn-success target="_blank">Watch movie</a>
 </div>
