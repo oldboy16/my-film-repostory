@@ -117,6 +117,11 @@ input {
 
 main {
     padding-top: 93px;
+    height: 600px !important;
+    .im_g{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
 
 .image {
@@ -205,10 +210,19 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     padding-top: 100px;
     padding-bottom: 100px;
     li{
-        margin-top: 30px;
+        margin-top: 40px;
+        width: 300px;
+        height: 400px;
+        p{
+            color: white;
+        }
+        img{
+            width: 250px;
+        }
     }
 }
 .hero__img{
@@ -221,7 +235,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    padding-bottom: 150px;
     ul{
         padding-top: 30px;
         display: flex;
@@ -229,8 +243,12 @@ main {
         gap: 43px;
         color: white;
     }
-    &__img{
-        transform: translateX(100px);
+    .logos__list{
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        width: 300px;
+        transform: translate(50px);
     }
     &__text{
         transform: translateX(50px);
