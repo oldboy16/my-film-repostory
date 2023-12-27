@@ -41,7 +41,7 @@ function fnRender(data){
 }
 
 function fnYear(value){
-    if(value == "max"){
+    if(value == "new"){
         fnRender(partMovies.sort((a,b)=> b.movie_year - a.movie_year));
     }else if(value == "old"){
         fnRender(partMovies.sort((a,b)=> a.movie_year - b.movie_year));
