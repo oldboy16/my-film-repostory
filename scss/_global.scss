@@ -40,7 +40,6 @@ select {
     background-color: #0C111B;
     color: white;
 }
-
 option {
     background-color: #0C111B;
     outline: none;
@@ -171,10 +170,10 @@ main {
     position: fixed;
     top: 0;
     left: -400px;
-    background-color: #101217;
+    background-color: #0C111B;
     color: white;
     transition: all ease 0.5s;
-    z-index: 2;
+    z-index: 3;
 }
 .open__off{
     left: 0;

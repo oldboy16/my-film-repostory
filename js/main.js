@@ -12,9 +12,12 @@ function closeCanvas() {
 let elHeader = document.querySelector(".header")
 window.addEventListener("scrollY", (a) => {
     let val = Math.floor(window.scrollY)
-    if (val >= 20) {
-        elHeader.style.boxShadow = `0px 0px 10px 0px black`
+    if (val >= 90) {
+        elHeader.style.boxShadow = `0px 0px 100px 0px black`
+    }else{
+        elHeader.style.boxShadow = `0px 0px 0px 0px black`
     }
+    console.log(val);
 })
 
 
@@ -29,8 +32,8 @@ function fnRender(data){
         newli.innerHTML = `
         <div class="hero__card">
         <img class="hero__img" src="https://i.ytimg.com/vi/${item.ytid}/hqdefault.jpg?" class="card-img-top" alt="...">
-        <p>${item.Categories}</p>
         <h5 class="card__title">${item.Title}</h5>
+        <p>${item.Categories}</p>
         <p class="card__year">${item.movie_year}-year</p>
         <p class="card__rate">${item.imdb_rating} ⭐</p>
         <a href="https://www.youtube.com/watch?v=${item.ytid}" class="btn btn-warning target="_blank">Watch movie</a>
