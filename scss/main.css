@@ -60,9 +60,23 @@ input {
   margin-left: -20px;
 }
 
+.button__itm {
+  border: none;
+  background-color: transparent;
+}
+
+.btn__search {
+  color: white;
+  margin-left: -20px;
+}
+
 .text__item {
   color: white;
   padding-top: 20px;
+}
+
+.inp {
+  background-color: transparent;
 }
 
 .btn__item {
@@ -164,7 +178,7 @@ main .im_g {
 
 .off__canvas {
   width: 350px;
-  height: 700px;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: -400px;
@@ -272,4 +286,8 @@ main .im_g {
 
 .page__item:hover {
   background-color: rgb(4, 132, 168);
+}
+
+.page__link {
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */

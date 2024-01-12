@@ -54,6 +54,7 @@ function fnYear(value){
     }
 }
 
+
 function fnRanting(value){
     if(value == 'max'){
         fnRender(partMovies.sort((a,b)=> b.imdb_rating - a.imdb_rating))
@@ -63,64 +64,35 @@ function fnRanting(value){
 }
 
 
-// let elSel = document.querySelector(".sel__category")
-
-// let arrCategory = []
-
-// partMovies.forEach((item)=>{
-//     if(!arrCategory.includes(item.Categories)){
-//         arrCategory.push(item.Categories)
-//     }
-// })
-
-// arrCategory.forEach((item)=>{
-//     let newOption = document.createElement("option")
-//     newOption.textContent = item
-//     elSel.appendChild(newOption)
-// })
-
-// function fnCategory(value){
-//     fnRender(partMovies.filter((item)=> item.Categories == value))
-// }
-
 
 let elSel = document.querySelector(".sel__category")
-
 let arrCategory = []
-
 partMovies.forEach((item)=>{
     if(!arrCategory.includes(item.Categories)){
         arrCategory.push(item.Categories)
     }
 })
-
-
 arrCategory.forEach((item)=>{
-    let newOption = document.createElement("option")
+    let newOption = document.createElement('option')
     newOption.textContent = item
     elSel.appendChild(newOption)
 })
-
 function fnCategory(value){
     fnRender(partMovies.filter((item)=> item.Categories == value))
 }
 
 
-
 function fnSearch(event){
-    let val = event.target.search.value
+    let val = event.target.search.value 
     event.preventDefault()
-    fnRender(partMovies.filter((item)=> item.Title.toString().toLowerCase().includes(val.toLowerCase())));
+   fnRender(partMovies.filter((item)=> item.Title.toString().toLowerCase().includes(val.toLowerCase())))
 }
-
-
 function fnReset(value){
     if(value == ''){
         fnRender(partMovies)
     }
 }
 
-
 function fnPagenation(count){
-    fnRender(partMovies.slice((count -1)*10, count *10))
+    fnRender(partMovies.slice((count-1)*10), count*10)
 }

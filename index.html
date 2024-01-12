@@ -63,8 +63,8 @@
                     <li class="hero__items">
                         <form action="#" onsubmit="fnSearch(event)">
                             <div class="d_iv">
-                                <input oninput="fnReset(value)" type="text" placeholder="Search" name="search">
-                                <button type="submit"><img  class="search" src="./img/search.png" alt=""></button>
+                                <input class="inp" oninput="fnReset(value)" type="text" placeholder="Search" name="search">
+                                <button class="button__itm" type="submit"><i class="bi bi-search btn__search"></i></button>
                             </div>
                         </form>
                     </li>
@@ -109,13 +109,13 @@
     </main>
     <section class="movies">
         <div class="container">
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example nav__page">
                 <ul class="pagination pagination__item">
-                  <li class="page-item"><a class="page-link  page__item" onclick="fnPagenation(1)" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link  page__item" onclick="fnPagenation(2)" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link  page__item" onclick="fnPagenation(3)" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link  page__item" onclick="fnPagenation(4)" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link  page__item" onclick="fnPagenation(5)" href="#">5</a></li>
+                  <li class="page-item"><a onclick="fnPagenation(1)" class="page-link page__link">1</a></li>
+                  <li class="page-item"><a onclick="fnPagenation(2)" class="page-link page__link">2</a></li>
+                  <li class="page-item"><a onclick="fnPagenation(3)" class="page-link page__link">3</a></li>
+                  <li class="page-item"><a onclick="fnPagenation(4)" class="page-link page__link">4</a></li>
+                  <li class="page-item"><a onclick="fnPagenation(5)" class="page-link page__link">5</a></li>
                 </ul>
               </nav>
             <ul class="movies__list">
@@ -125,16 +125,16 @@
                 <div class="footer__item">
                     <ul class="logos__list">
                         <li class="logo__items">
-                            <a href="#"><img src="./img2/logo1.png" alt=""></a>
+                            <a href="https://www.facebook.com"><img src="./img2/logo1.png" alt=""></a>
                         </li>
                         <li class="logo__items">
-                            <a href="#"><img src="./img2/logo2.png" alt=""></a>
+                            <a href="https://www.instagram.com"><img src="./img2/logo2.png" alt=""></a>
                         </li>
                         <li class="logo__items">
-                            <a href="#"><img src="./img2/logo3.png" alt=""></a>
+                            <a href="https://www.twitter.com"><img src="./img2/logo3.png" alt=""></a>
                         </li>
                         <li class="logo__items">
-                            <a href="#"><img src="./img2/logo4.png" alt=""></a>
+                            <a href="https://www.youtube.com"><img src="./img2/logo4.png" alt=""></a>
                         </li>
                     </ul>
                     <ul class="footer__list">
