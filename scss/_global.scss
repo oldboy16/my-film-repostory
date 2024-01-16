@@ -20,7 +20,7 @@ a {
 }
 
 .container {
-    width: 1512px;
+    max-width: 1512px;
     margin: 0 auto;
 }
 
@@ -274,4 +274,10 @@ main {
 }
 .page__link{
     cursor: pointer;
+}
+.bi__heart{
+    color: white;
+}
+.a__off{
+    text-decoration: none;
 }

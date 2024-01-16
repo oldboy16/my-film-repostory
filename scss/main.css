@@ -20,7 +20,7 @@ a {
 }
 
 .container {
-  width: 1512px;
+  max-width: 1512px;
   margin: 0 auto;
 }
 
@@ -290,4 +290,12 @@ main .im_g {
 
 .page__link {
   cursor: pointer;
+}
+
+.bi__heart {
+  color: white;
+}
+
+.a__off {
+  text-decoration: none;
 }/*# sourceMappingURL=main.css.map */
