@@ -292,8 +292,9 @@ main .im_g {
   cursor: pointer;
 }
 
-.bi__heart {
-  color: white;
+.heart__fill {
+  color: red;
+  cursor: pointer;
 }
 
 .a__off {

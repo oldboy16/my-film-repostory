@@ -26,18 +26,15 @@ window.addEventListener("scroll", (a) => {
 const partMovies = movies.slice(0,51)
 const elMovlist = document.querySelector('.movies__list')
 
-let saveLocData = []
-if(window.localStorage.getItem('saveData')){
-    saveLocData = JSON.parse(window.localStorage.getItem('saveData'))
-}
 
-console.log(saveLocData.includes('jwD04NsnLLg'));
+
 fnRender(partMovies)
 function fnRender(data){
     elMovlist.innerHTML = ''
     data.forEach((a,index)=>{
         let newLi = document.createElement('li')
         newLi.innerHTML = `
+        <div>
         <div class="hero__card">
           <img class="hero__img" src="https://i.ytimg.com/vi/${a.ytid}/hqdefault.jpg" class="card-img-top" alt="...">
           <h5 class="card__title">${a.Title}</h5>
@@ -45,12 +42,11 @@ function fnRender(data){
           <p class="card__year">${a.movie_year}-year</p>
           <p class="card__rate">${a.imdb_rating} ⭐</p>
         <div class="d-flex justify-content-between align-items-center color-white">
-            <a href="https://www.youtube.com/watch?v=${a.ytid}" 
-            class="btn btn-warning">Watch movie</a>
-            <i onclick="setFavourite('${a.ytid}')" 
-            class="${JSON.parse(window.localStorage.getItem('saveData'))?.find(k=> k.ytid == a.ytid)? 'bi bi-heart-fill': 'bi bi-heart'}"></i>
-            </div>
+            <button onclick = "setId('${a.ytid}')" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">more<i class="bi bi-arrow-right"></i></button>
+            <i onclick="setFavourite('${a.ytid}')" class="${JSON.parse(window.localStorage.getItem('saveData'))?.find(k=> k.ytid == a.ytid)? 'bi bi-heart-fill heart__fill': 'bi bi-heart heart__fill'}"></i>
         </div>
+    </div>
+    </div>
         `
         elMovlist.appendChild(newLi)
     })
@@ -103,13 +99,23 @@ function fnSearch(event){
     fnRender(partMovies.filter((item)=> item.Title.toString().toLowerCase().includes(val.toLowerCase())))
 }
 
+//PAGENATION
+const elPagenation = document.querySelectorAll('.page__link')
+function fnPagenation(count){
+    fnRender(partMovies.slice((count-1)*10, count *10))
+}
+
+//HEART
 let saveData = []
+
 function setFavourite(id){
     if(window.localStorage.getItem('saveData')){
         saveData = JSON.parse(window.localStorage.getItem('saveData'))
     }
+
     if(saveData.find(k=> k.ytid == id)){
-        window.localStorage.setItem('saveData', JSON.stringify(saveData.filter(item=> item.ytid != id)))
+        window.localStorage.setItem('saveData', 
+        JSON.stringify(saveData.filter(item=> item.ytid != id)))
     }else{
         saveData.push(partMovies.find(k=> k.ytid == id))
         window.localStorage.setItem('saveData', JSON.stringify(saveData))
@@ -118,20 +124,42 @@ function setFavourite(id){
     fnRender(partMovies)
 }
 
-
+//OFFCANVAS
 function fnMapLoc(){
+    elOfclist.innerHTML = ''
     let data = JSON.parse(window.localStorage.getItem('saveData'))
     data.map((item)=>{
-        elOfclist.innerHTML = ''
         let newLi = document.createElement('li')
         newLi.style.height = '40px'
         newLi.innerHTML = `
         <a href="https://www.youtube.com/watch?v=${item.ytid}" target="_blank" class="a__off d-flex justify-content-between align-items-center w-100 h-100 border">
-        <img class="h-100" src="https://i.ytimg.com/vi/${item.ytid}/hqdefault.jpg" alt="">
-        <h3 class="pe-4">${item.Title.toString().slice(0,10)}</h3>
-       </a> 
+            <img class="h-100" src="https://i.ytimg.com/vi/${item.ytid}/hqdefault.jpg" alt="">
+            <h3 class="pe-3">${item.Title.toString().slice(0,10)}</h3>
+        </a>
         `
         elOfclist.appendChild(newLi)
     })
 }
 
+//MODAL
+
+let elModContent = document.querySelector('.modal-content')
+
+function setId(id){
+    let item = partMovies.find((i)=> i.ytid == id)
+    elModContent.innerHTML = `
+    <div class="modal-header">
+    <h2 class="modal-title fs-5" id="exampleModalLabel">${item.Title}</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+  <iframe width="100%" height="300" src="https://www.youtube.com/embed/${item.ytid}" title="${item.Title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <h2>${item.Categories}</h2>
+    <p>${item.summary}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <a href="https://www.youtube.com/watch?v=${item.ytid}" target="_blank" class="btn btn-primary">watch movie</a>
+  </div>
+    `
+}
