@@ -22,10 +22,9 @@ window.addEventListener("scroll", (a) => {
 });
 
 
-
+//LIST
 const partMovies = movies.slice(0,51)
 const elMovlist = document.querySelector('.movies__list')
-
 
 
 fnRender(partMovies)
@@ -99,6 +98,13 @@ function fnSearch(event){
     fnRender(partMovies.filter((item)=> item.Title.toString().toLowerCase().includes(val.toLowerCase())))
 }
 
+//RESET
+function fnReset(value){
+    if(value == ''){
+        fnRender(partMovies)
+    }
+}
+
 //PAGENATION
 const elPagenation = document.querySelectorAll('.page__link')
 function fnPagenation(count){
@@ -142,7 +148,6 @@ function fnMapLoc(){
 }
 
 //MODAL
-
 let elModContent = document.querySelector('.modal-content')
 
 function setId(id){
